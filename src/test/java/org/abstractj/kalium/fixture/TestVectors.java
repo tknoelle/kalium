@@ -67,12 +67,21 @@ public class TestVectors {
      * pwhash test vectors
      * */
     
+    public static final String ARGON2_PWHASH_MESSAGE = "Correct Horse Battery Staple";
+    public static final String ARGON2_PWHASH_SALT = "[<~A 32-bytes salt for argon2~>]";
+    public static final String ARGON2_PWHASH_DIGEST = "8a06c72759392b00c84ba6f3262646a4bdcf28c406b324d9f8578951775077ba4d5b2890a88aee5b878b8ac76eba3b2477c02ddffc6ec683d488efcb8b289b3f";
+    public static final String ARGON2_PWHASH_DIGEST_EMPTY_STRING = "779c4679479913f383b8f0113d337915e4b35173cafd1bbba5ef91201c526a94dab9e09123bba4cdfd214994bdcc5779720f152bd8ea124ceb7104b618011209";
+
+    /**
+     * argon2 test vectors
+     */
+
     public static final String PWHASH_MESSAGE = "Correct Horse Battery Staple";
     public static final String PWHASH_SALT = "[<~A 32-bytes salt for scrypt~>]";
     public static final String PWHASH_DIGEST = "a2ec8a8ee744e0ff2c26d4fc198ddf7c0cd1460b5b6729e0d8518b6577c69acd412491f0913737e64c5c9136c04731545e756e0a9be35f55337e446c6bbc3a3f";
     public static final String PWHASH_DIGEST_EMPTY_STRING = "f8b1543b940c7898ce90261d07f5193cb0570081e47b01610c043b8091666e12585ab9844edb189624c2ba662ca7478cfbed9f38fe1066b7ce583a3321470424";
-    
-    
+
+
     /**
      * Curve25519 test vectors
      */

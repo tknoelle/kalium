@@ -27,7 +27,7 @@ public class NaCl {
     public static Sodium sodium() {
         Sodium sodium = SingletonHolder.SODIUM_INSTANCE;
 
-        if(!(sodium.sodium_version_string().compareTo("1.0.3") >= 0)){
+        if(!(sodium.sodium_version_string().compareTo("1.0.10") >= 0)){
             String message = String.format("Unsupported libsodium version: %s. Please update",
                     sodium.sodium_version_string());
             throw new UnsupportedOperationException(message);
@@ -109,7 +109,33 @@ public class NaCl {
         public int crypto_pwhash_scryptsalsa208sha256_str_verify(@In byte[] buffer,
                                                                  @In byte[] passwd,
                                                                  @u_int64_t long passwdlen);
-        
+
+        public static final int CRYPTO_PWHASH_ARGON2I_ALG_ARGON2I13 = 1;
+        public static final int CRYPTO_PWHASH_ARGON2I_STRBYTES = 128;
+        public static final int CRYPTO_PWHASH_ARGON2I_OUTBYTES = 64;
+        public static final int CRYPTO_PWHASH_ARGON2I_OPSLIMIT_INTERACTIVE = 4;
+        public static final int CRYPTO_PWHASH_ARGON2I_MEMLIMIT_INTERACTIVE = 33554432;
+
+        public int crypto_pwhash_argon2i(@Out byte[] buffer,
+                                                      @u_int64_t long outlen,
+                                                      @In byte[] passwd,
+                                                      @u_int64_t long passwdlen,
+                                                      @In byte[] salt,
+                                                      @u_int64_t long opslimit,
+                                                      @u_int64_t long memlimit,
+                                                      @u_int64_t long alg);
+
+        public int crypto_pwhash_argon2i_str(@Out byte[] buffer,
+                                                          @In byte[] passwd,
+                                                          @u_int64_t long passwdlen,
+                                                          @u_int64_t long opslimit,
+                                                          @u_int64_t long memlimit);
+
+        public int crypto_pwhash_argon2i_str_verify(@In byte[] buffer,
+                                                                 @In byte[] passwd,
+                                                                 @u_int64_t long passwdlen);
+
+
         public static final int PUBLICKEY_BYTES = 32;
         public static final int SECRETKEY_BYTES = 32;
 
